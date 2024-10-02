@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto por WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contáctame por WhatsApp</h1>
+    <p>Selecciona una opción y presiona el botón para enviarla por WhatsApp:</p>
+
+    <!-- Selector de opción -->
+    <label for="opcion">Elige una opción:</label><br>
+    <select id="opcion" name="opcion">
+        <option value="Consulta">Consulta</option>
+        <option value="Llamada">Llamada</option>
+    </select><br><br>
+
+    <!-- Botón para enviar la opción seleccionada -->
+    <button type="button" onclick="enviarWhatsApp()" class="whatsapp-button">Enviar por WhatsApp</button>
+
+    <script>
+        function enviarWhatsApp() {
+            // Número de WhatsApp al que deseas enviar el mensaje
+            const numero = "+51918373520";  // Número con el código de país
+            const opcion = document.getElementById("opcion").value;
+
+            // Generar el enlace para enviar el mensaje con la opción seleccionada
+            const link = `https://api.whatsapp.com/send?phone=${numero}&text=Hola,%20deseo%20hacer%20una%20${encodeURIComponent(opcion)}.`;
+            window.open(link, '_blank');
+        }
+    </script>
+
+</body>
+</html>
